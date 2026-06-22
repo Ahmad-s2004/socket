@@ -188,31 +188,35 @@ export default function DestinationPage() {
 
       {/* FILTER CONTROL CONTROLLER HEADER */}
       <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 relative z-10">
-        <div className="flex items-center justify-between border-b border-slate-200/60 pb-4">
-          <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">
-            Showing <span className="text-blue-600 font-black">{filteredPackages.length}</span> Premium Dynamic Layouts
-          </p>
-          
-          <div className="flex items-center gap-3">
-            <button 
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="flex items-center gap-2 px-4 py-2.5 border border-slate-200 bg-white hover:border-blue-500 rounded-xl text-xs font-bold text-slate-700 transition shadow-sm"
-            >
-              <SlidersHorizontal className="w-3.5 h-3.5 text-blue-600" /> 
-              {isFilterOpen ? 'Hide Parameters' : 'Filter Framework'}
-            </button>
+      <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-200/60 pb-4 gap-4">
+  {/* Left Side: Showing count (Mobile par text-center ya left align structured line) */}
+  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider text-left">
+    Showing <span className="text-blue-600 font-black">{filteredPackages.length}</span> Premium Dynamic Layouts
+  </p>
+  
+  {/* Right Side Controls: Filter & Dropdown (Mobile par w-full aur grid/flex-row taake dono aik hi line mein rahein) */}
+  <div className="flex items-center gap-3 w-full md:w-auto">
+    <button 
+      onClick={() => setIsFilterOpen(!isFilterOpen)}
+      className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 bg-white hover:border-blue-500 rounded-xl text-xs font-bold text-slate-700 transition shadow-sm"
+    >
+      <SlidersHorizontal className="w-3.5 h-3.5 text-blue-600" /> 
+      <span className="whitespace-nowrap">
+        {isFilterOpen ? 'Hide Parameters' : 'Filter Framework'}
+      </span>
+    </button>
 
-            <select 
-              value={sortBy} 
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-white border border-slate-200 text-xs font-bold rounded-xl px-3 py-2.5 text-slate-700 outline-none hover:border-blue-500 transition cursor-pointer shadow-sm"
-            >
-              <option>Popularity Matrix</option>
-              <option>Low to High</option>
-              <option>High to Low</option>
-            </select>
-          </div>
-        </div>
+    <select 
+      value={sortBy} 
+      onChange={(e) => setSortBy(e.target.value)}
+      className="flex-1 md:flex-none bg-white border border-slate-200 text-xs font-bold rounded-xl px-3 py-2.5 text-slate-700 outline-none hover:border-blue-500 transition cursor-pointer shadow-sm min-w-0"
+    >
+      <option>Popularity Matrix</option>
+      <option>Low to High</option>
+      <option>High to Low</option>
+    </select>
+  </div>
+</div>
 
         {/* Desktop Dropdown Matrix View */}
         {isFilterOpen && (
@@ -316,7 +320,7 @@ export default function DestinationPage() {
             <p className="text-slate-400 text-xs leading-relaxed font-medium">Join our private registry vector to secure instantaneous luxury slots prior to public release channels.</p>
           </div>
 
-          <div className="relative z-10 w-full md:w-auto min-w-[300px]">
+          <div className="relative z-10 w-auto md:w-auto min-w-[300px]">
             <form className="flex flex-col sm:flex-row gap-2 p-1.5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md" onSubmit={(e) => e.preventDefault()}>
               <input type="email" required placeholder="Enter custom email node" className="bg-transparent text-xs px-4 py-3 outline-none w-full text-white placeholder-slate-500 font-semibold" />
               <button type="submit" className="bg-white hover:bg-slate-100 text-slate-900 font-black text-xs px-5 py-3 rounded-xl transition whitespace-nowrap uppercase tracking-wider">
