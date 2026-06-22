@@ -66,7 +66,7 @@ export default function Home() {
       title: "Ultimate Bali Rainforest & Gili Island Hop",
       location: "Indonesia Multi-Centre",
       duration: "14 Nights",
-      price: "1,450",
+      price: "1,449",
       img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80",
       badge: "Trending Fast",
       highlights: ["Ubud Jungle Resort", "Speedboat Inter-links", "Private Sunset Tour"]
