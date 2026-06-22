@@ -62,7 +62,7 @@ export default function Navbar() {
           <div className={`lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-[500px] border-t border-slate-200 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
             <div className="bg-white px-6 py-6 space-y-3">
               <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl bg-blue-600 text-white font-bold">Home</Link>
-              <Link to="/destinations" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Destinations</Link>
+              <Link to="/destination" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Destinations</Link>
               <Link to="/themes" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Travel Styles</Link>
               <Link to="/process" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">How It Works</Link>
               <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
