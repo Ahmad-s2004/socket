@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, Phone, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,64 +21,56 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-8 pt-4 transform-gpu will-change-transform">
-      <nav className={`max-w-7xl mx-auto rounded-2xl border border-white/10 backdrop-blur-md bg-[#060b18]/70 transition-all duration-300 ease-out overflow-hidden transform-gpu ${
-        scrolled 
-          ? 'shadow-[0_0_30px_rgba(6,182,212,0.15)] max-w-5xl border-cyan-500/30 bg-[#060b18]/90' 
-          : 'shadow-2xl'
-      }`}>
-        {/* Baki ka navbar code bilkul same rahega */}
-        <div className="h-20 flex items-center justify-between px-6 sm:px-8">
-          <div className="flex items-center cursor-pointer group">
-            <div className="relative flex items-center justify-center p-1.5 rounded-xl bg-white/5 border border-white/10 mr-3 group-hover:border-cyan-500/50 transition-colors">
-              <Globe className="w-5 h-5 text-cyan-400" /> {/* Real-time pulse animation lag hata di taake render loop na bane */}
+      <nav className={`max-w-7xl mx-auto rounded-2xl border border-slate-200/80 backdrop-blur-md bg-white/80 transition-all duration-300 ease-out overflow-hidden ${
+          scrolled ? 'shadow-[0_10px_30px_rgba(11,53,158,0.1)] max-w-6xl border-blue-600/20 bg-white/95' : 'shadow-lg'
+        }`}>
+          <div className="h-20 flex items-center justify-between px-6 sm:px-8">
+            <div className="flex items-center cursor-pointer group gap-3">
+              {/* Perfect clean frame for logo.jpg */}
+              <div className="bg-white px-2 py-1 rounded-xl flex items-center justify-center">
+                <img 
+                  src="https://planholidays.co.uk/public/uploads/settings/logo.jpg" 
+                  alt="Plan Holidays Logo" 
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
             </div>
-            <img 
-              src="/src/assets/logo.jpg" 
-              alt="Plan Holidays Logo" 
-              className="h-9 w-auto object-contain brightness-110 mix-blend-screen"
-            />
-          </div>
 
-          <div className="hidden md:flex items-center gap-1 bg-white/5 p-1.5 rounded-xl border border-white/5">
-            <a href="#" className="px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 text-cyan-400">Home</a>
-            <a href="#" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">About Us</a>
-            <a href="#" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Destinations</a>
-            <a href="#" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Packages</a>
-            <a href="#" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all">Contact</a>
-          </div>
+            <div className="hidden lg:flex items-center gap-1 bg-slate-100 p-1.5 rounded-xl border border-slate-200/60">
+              <Link to="/" className="px-4 py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-sm">Home</Link>
+              <Link to="/destination" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">Destinations</Link>
+              <Link to="/themes" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">Travel Styles</Link>
+              <Link to="/process" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">How It Works</Link>
+              <Link to="/faq" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">FAQs</Link>
+            </div>
 
-          <div className="hidden md:flex items-center gap-4">
-            <a href="tel:02030628927" className="flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-cyan-400 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-cyan-400" /> 0203 062 8927
-            </a>
-            <a href="https://wa.me/" target="_blank" rel="noreferrer" className="relative inline-flex items-center justify-center p-0.5 me-2 overflow-hidden text-xs font-bold text-white rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 shadow-lg shadow-green-500/20">
-              <span className="relative px-4 py-2 transition-all bg-[#060b18] rounded-xl">
+            <div className="hidden md:flex items-center gap-4">
+              <a href="tel:02030628927" className="flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-blue-600 transition-colors bg-slate-100 px-4 py-2.5 rounded-xl border border-slate-200">
+                <Phone className="w-3.5 h-3.5 text-blue-600" /> 0203 062 8927
+              </a>
+              <a href="https://wa.me/" target="_blank" rel="noreferrer" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-md shadow-blue-600/10 hover:scale-105 transition-transform">
                 Connect WhatsApp
-              </span>
-            </a>
+              </a>
+            </div>
+
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 text-slate-600 hover:text-slate-900 rounded-xl bg-slate-100">
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-slate-400 hover:text-white rounded-xl bg-white/5 focus:outline-none">
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-
-        {/* MOBILE DRAWER WITH CONTENT-VISIBILITY OPTIMIZATION */}
-        <div 
-          className={`md:hidden transition-all duration-200 ease-in-out overflow-hidden transform-gpu ${
-            mobileMenuOpen ? 'max-h-[500px] border-t border-white/10 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-          }`}
-          style={{ contentVisibility: mobileMenuOpen ? 'auto' : 'hidden' }}
-        >
-          <div className="bg-[#060b18]/95 px-6 py-6 space-y-3">
-            <a href="#" className="block py-2.5 px-4 rounded-xl bg-white/5 text-cyan-400 font-medium">Home</a>
-            <a href="#" className="block py-2.5 px-4 rounded-xl text-slate-300 hover:bg-white/5">About Us</a>
-            <a href="#" className="block py-2.5 px-4 rounded-xl text-slate-300 hover:bg-white/5">Destinations</a>
-            <a href="#" className="block py-2.5 px-4 rounded-xl text-slate-300 hover:bg-white/5">Multi-Centre Packages</a>
-            <a href="#" className="block py-2.5 px-4 rounded-xl text-slate-300 hover:bg-white/5">Contact Us</a>
+          {/* Mobile Menu */}
+          <div className={`lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'max-h-[500px] border-t border-slate-200 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+            <div className="bg-white px-6 py-6 space-y-3">
+              <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl bg-blue-600 text-white font-bold">Home</Link>
+              <Link to="/destinations" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Destinations</Link>
+              <Link to="/themes" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Travel Styles</Link>
+              <Link to="/process" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">How It Works</Link>
+              <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
+                <a href="tel:02030628927" className="flex items-center justify-center gap-2 py-3 font-bold bg-slate-100 rounded-xl"><Phone className="w-4 h-4 text-blue-600" /> 0203 062 8927</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
     </div>
   );
 }
