@@ -40,7 +40,7 @@ export default function Navbar() {
               <Link to="/" className="px-4 py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-sm">Home</Link>
               <Link to="/destination" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">Destinations</Link>
               <Link to="/payment" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">E Payment</Link>
-              <Link to="/process" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">How It Works</Link>
+              <Link to="/contact" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">Contact</Link>
               <Link to="/faq" className="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:text-blue-700 hover:bg-white transition-all">FAQs</Link>
             </div>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
               <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl bg-blue-600 text-white font-bold">Home</Link>
               <Link to="/destination" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Destinations</Link>
               <Link to="/payment" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">E Payment</Link>
-              <Link to="/process" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">How It Works</Link>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block py-2.5 px-4 rounded-xl text-slate-700 hover:bg-slate-50">Contact</Link>
               <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
                 <a href="tel:02030628927" className="flex items-center justify-center gap-2 py-3 font-bold bg-slate-100 rounded-xl"><Phone className="w-4 h-4 text-blue-600" /> 0203 062 8927</a>
               </div>
