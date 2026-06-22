@@ -1,17 +1,17 @@
 import React from 'react'
 import Home from './pages/home'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import DestinationPage from './pages/destination'
 
 const App = () => {
   return (
     <>
-    <BrowserRouter>
+    <Router>
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/destination' element={<DestinationPage/>} />
     </Routes>
-    </BrowserRouter>
+    </Router>
     
     </>
   )
